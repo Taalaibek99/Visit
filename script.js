@@ -18,10 +18,19 @@ document.getElementById('submitBtn').addEventListener('click', function () {
         })
         .then(data => {
             // API жообун көрсөтүү
-            document.getElementById('apiResponse').textContent = JSON.stringify(data, null, 2);
+            if (data.status === "Success") {
+                document.getElementById('name').textContent = data.message.Name;
+                document.getElementById('uid').textContent = data.message.UID;
+                document.getElementById('successful').textContent = data.message.Successful;
+                document.getElementById('failed').textContent = data.message.Failed;
+                document.getElementById('time').textContent = data.message.Time;
+                document.getElementById('speed').textContent = data.message.Speed;
+            } else {
+                document.getElementById('apiResponse').innerHTML = `<p>Error: ${data.message}</p>`;
+            }
         })
         .catch(error => {
             console.error('API Error:', error);
-            document.getElementById('apiResponse').textContent = 'Error fetching data.';
+            document.getElementById('apiResponse').innerHTML = '<p>Error fetching data.</p>';
         });
 });
