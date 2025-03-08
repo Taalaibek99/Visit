@@ -15,13 +15,11 @@
     <main>
         <section id="visit">
             <h2>Visit Counter</h2>
-            <p>Your UID: <span id="uid">{uid}</span></p>
+            <label for="uid">Enter UID:</label>
+            <input type="text" id="uidInput" placeholder="Enter your UID">
+            <button id="submitBtn">Go</button>
             <p>Server Load: <span id="sl">50</span></p>
-        </section>
-
-        <section id="about">
-            <h2>About Us</h2>
-            <p>We are the VirusTeam, dedicated to providing the best FreeFire experience.</p>
+            <p>API Response: <span id="apiResponse"></span></p>
         </section>
     </main>
 
